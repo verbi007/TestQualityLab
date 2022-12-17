@@ -23,7 +23,7 @@ public class SendALetter {
     private SelenideElement actualTitle = $(By.xpath("//a[@class='layer__link']"));
 
 
-    @And("^Нажать на кнопку 'Написать письмо'$")
+    @When("^Нажать на кнопку 'Написать письмо'$")
     public void clickWriteALetter() {
         closePopup.click();
         writeALetterBtn.click();

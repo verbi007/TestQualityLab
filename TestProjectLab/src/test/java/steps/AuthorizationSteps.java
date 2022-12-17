@@ -33,7 +33,7 @@ public class AuthorizationSteps {
         Selenide.switchTo().frame(frameAuth);
     }
 
-    @And("Вводим имя пользователя {string}")
+    @And("Ввести имя пользователя {string}")
     public void enterLogin(String login) {
         usernameField.shouldBe(Condition.enabled).sendKeys(login);
     }
@@ -43,12 +43,12 @@ public class AuthorizationSteps {
         nextBtn.shouldBe(Condition.enabled).click();
     }
 
-    @And("Вводим пароль {string}")
+    @And("Ввести пароль {string}")
     public void enterPassword(String password) {
         passwordField.shouldBe(Condition.exist).sendKeys(password);
     }
 
-    @And("Нажимаем кнопку Войти")
+    @And("Нажать кнопку Войти")
     public void clickEnterBtn() {
         enterBtn.shouldBe(Condition.exist).click();
         closePopup.shouldBe(Condition.visible).click();
