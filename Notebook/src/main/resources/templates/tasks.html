@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html class="h-100" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="${title}" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+<body class="d-flex text-center text-bg-dark">
+<div class="container col-xxl-8 px-4 py-5">
+  <header class="px-3 py-2 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+          <h3>Jumbo</h3>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+          <li>
+            <a href="/" class="nav-link text-white">
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/tasks" class="nav-link text-secondary">
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
+              Notes
+            </a>
+          </li>
+          <li>
+            <a href="/customers" class="nav-link text-white">
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+              Customers
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light" th:text="${title}"/>
+        <p class="lead text-muted">Добавляй свои мысли</p>
+        <div th:each="el : ${tasks}" style="background-color: #dee2e6" class="alert alert-info mt-2">
+          <h3 th:text="${el.title}"/>
+          <p th:text="${el.format_date}"/>
+          <a th:href="'/tasks/' + ${el.id}" class="btn btn-primary">Детальнее</a>
+          <a th:href="'/tasks/' + ${el.id} + '/remove'" class="btn btn-secondary">Удалить</a>
+
+        </div>
+        <p>
+          <a href="/tasks/add" class="btn btn-primary my-2">Добавить заметку</a>
+          <a href="/tasks/remove_all" class="btn btn-secondary my-2">Удалить все</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <footer th:insert="blocks/footer :: footer" ></footer>
+</div>
+
+</body>
+</html>
